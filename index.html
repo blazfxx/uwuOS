@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>uwuOS</title>
+  <link rel="stylesheet" href="style.css?v=16" />
+</head>
+
+<body>
+
+  <div id="boot">
+    <svg viewBox="0 0 48 48" width="56" height="56" fill="none">
+      <rect x="6" y="6" width="36" height="36" rx="10" stroke="#fafafa" stroke-width="3" />
+      <circle cx="24" cy="24" r="7" fill="#fafafa" />
+    </svg>
+    <p id="bootname">uwuOS</p>
+    <div id="bootbar">
+      <div id="bootprogress"></div>
+    </div>
+    <p id="bootgreeting"></p>
+  </div>
+
+  <div id="namescreen">
+    <div class="name-card">
+      <svg viewBox="0 0 48 48" width="40" height="40" fill="none">
+        <rect x="6" y="6" width="36" height="36" rx="10" stroke="#fafafa" stroke-width="3" />
+        <circle cx="24" cy="24" r="7" fill="#fafafa" />
+      </svg>
+      <p id="namequestion">What should we call you?</p>
+      <div class="boot-form">
+        <input id="bootnameinput" type="text" maxlength="24" autocomplete="off" spellcheck="false"
+          placeholder="Your name" />
+        <button id="bootnamesubmit" aria-label="Continue">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="topbar">
+    <div class="topbar-left">
+      <button id="oslabel" class="topbar-item">uwuOS</button>
+    </div>
+    <div class="topbar-right">
+      <button id="searchbutton" class="topbar-icon" aria-label="Search">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7" />
+          <path d="M21 21l-4.3-4.3" />
+        </svg>
+      </button>
+      <span id="clock" class="topbar-item">--:--</span>
+    </div>
+  </div>
+
+  <div id="desktop">
+
+    <button class="icon" data-window="welcome">
+      <span class="icon-glyph">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 11l9-7 9 7" />
+          <path d="M5 10v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9" />
+        </svg>
+      </span>
+      <span class="icon-label">Welcome</span>
+    </button>
+
+    <button class="icon" data-window="notes">
+      <span class="icon-glyph">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" />
+          <path d="M15 3v4h4" />
+          <path d="M9 12h6M9 16h6" />
+        </svg>
+      </span>
+      <span class="icon-label">Notes</span>
+    </button>
+
+    <button class="icon" data-window="about">
+      <span class="icon-glyph">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 8h.01M12 11v5" />
+        </svg>
+      </span>
+      <span class="icon-label">About</span>
+    </button>
+
+    <button class="icon" data-window="calculator">
+      <span class="icon-glyph">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="3" width="14" height="18" rx="2" />
+          <path d="M8 7h8" />
+          <path d="M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01" />
+        </svg>
+      </span>
+      <span class="icon-label">Calculator</span>
+    </button>
+
+    <button class="icon" data-window="terminal">
+      <span class="icon-glyph">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="16" rx="2" />
+          <path d="M7 9l3 3-3 3" />
+          <path d="M12 15h5" />
+        </svg>
+      </span>
+      <span class="icon-label">Terminal</span>
+    </button>
+
+    <button class="icon" data-window="sketch">
+      <span class="icon-glyph">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 19l7-7 3 3-7 7-3-3z" />
+          <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+          <path d="M2 2l7.586 7.586" />
+        </svg>
+      </span>
+      <span class="icon-label">Sketch</span>
+    </button>
+
+    <button class="icon" data-window="shorts">
+      <span class="icon-glyph">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <rect x="7" y="2" width="10" height="20" rx="3" />
+          <path d="M11 9.5l4 2.5-4 2.5v-5z" />
+        </svg>
+      </span>
+      <span class="icon-label">Shorts</span>
+    </button>
+
+    <button class="icon" data-window="settings">
+      <span class="icon-glyph">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3" />
+          <path
+            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.09a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.09a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+        </svg>
+      </span>
+      <span class="icon-label">Settings</span>
+    </button>
+
+    <button class="icon" data-window="weather">
+      <span class="icon-glyph">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17.5 19a4.5 4.5 0 0 0 0-9 6 6 0 0 0-11.6 1.5A4 4 0 0 0 6.5 19h11z" />
+        </svg>
+      </span>
+      <span class="icon-label">Weather</span>
+    </button>
+
+    <button class="icon" data-window="music">
+      <span class="icon-glyph">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18V5l12-2v13" />
+          <circle cx="6" cy="18" r="3" />
+          <circle cx="18" cy="16" r="3" />
+        </svg>
+      </span>
+      <span class="icon-label">Music</span>
+    </button>
+
+  </div>
+
+  <div class="window" id="welcome" style="top: 120px; left: 160px; width: 400px;">
+    <div class="window-header" id="welcomeheader">
+      <button class="window-close" data-close="welcome" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+      <span class="window-title">Welcome</span>
+      <span class="window-spacer"></span>
+    </div>
+    <div class="window-body">
+      <img id="welcomeavatar" src="./pfp.png" alt="blazfxx" />
+      <h1>Welcome to uwuOS</h1>
+      <h2>About me</h2>
+      <p>I'm an entrepreneur trying to survive school at the same time.</p>
+      <p>Currently saving up for a Mac mini to power my projects.</p>
+      <a href="https://github.com/blazfxx" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+
+  <div class="window" id="notes" style="top: 140px; left: 480px; width: 400px; height: 440px; display: none;">
+    <div class="window-header" id="notesheader">
+      <button class="window-close" data-close="notes" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+      <span class="window-title">Notes</span>
+      <span class="window-spacer"></span>
+    </div>
+    <div class="window-body notes-body">
+      <textarea id="noteinput" placeholder="Write a note..."></textarea>
+      <button id="notesave">Add note</button>
+      <ul id="notelist"></ul>
+    </div>
+  </div>
+
+  <div class="window" id="about" style="top: 200px; left: 280px; width: 320px; display: none;">
+    <div class="window-header" id="aboutheader">
+      <button class="window-close" data-close="about" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+      <span class="window-title">About</span>
+      <span class="window-spacer"></span>
+    </div>
+    <div class="window-body">
+      <h2>uwuOS</h2>
+      <p>Version 0.3</p>
+      <p>Built with HTML, CSS, and JavaScript.</p>
+    </div>
+  </div>
+
+  <div class="window" id="calculator" style="top: 110px; left: 560px; width: 280px; height: 420px; display: none;">
+    <div class="window-header" id="calculatorheader">
+      <button class="window-close" data-close="calculator" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+      <span class="window-title">Calculator</span>
+      <span class="window-spacer"></span>
+    </div>
+    <div class="window-body calc-body">
+      <div id="calcdisplay">0</div>
+      <div id="calcgrid">
+        <button class="calc-key calc-fn" data-key="clear">AC</button>
+        <button class="calc-key calc-fn" data-key="negate">+/-</button>
+        <button class="calc-key calc-fn" data-key="percent">%</button>
+        <button class="calc-key calc-op" data-key="/">÷</button>
+        <button class="calc-key" data-key="7">7</button>
+        <button class="calc-key" data-key="8">8</button>
+        <button class="calc-key" data-key="9">9</button>
+        <button class="calc-key calc-op" data-key="*">×</button>
+        <button class="calc-key" data-key="4">4</button>
+        <button class="calc-key" data-key="5">5</button>
+        <button class="calc-key" data-key="6">6</button>
+        <button class="calc-key calc-op" data-key="-">−</button>
+        <button class="calc-key" data-key="1">1</button>
+        <button class="calc-key" data-key="2">2</button>
+        <button class="calc-key" data-key="3">3</button>
+        <button class="calc-key calc-op" data-key="+">+</button>
+        <button class="calc-key calc-zero" data-key="0">0</button>
+        <button class="calc-key" data-key=".">.</button>
+        <button class="calc-key calc-op" data-key="=">=</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="window" id="terminal" style="top: 180px; left: 360px; width: 520px; height: 340px; display: none;">
+    <div class="window-header" id="terminalheader">
+      <button class="window-close" data-close="terminal" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+      <span class="window-title">Terminal</span>
+      <span class="window-spacer"></span>
+    </div>
+    <div class="window-body term-body">
+      <div id="termoutput"></div>
+      <div class="term-prompt">
+        <span class="term-user">blazfxx@uwuos %</span>
+        <input id="terminput" type="text" autocomplete="off" spellcheck="false" />
+      </div>
+    </div>
+  </div>
+
+  <div class="window" id="sketch" style="top: 90px; left: 240px; width: 520px; height: 440px; display: none;">
+    <div class="window-header" id="sketchheader">
+      <button class="window-close" data-close="sketch" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+      <span class="window-title">Sketch</span>
+      <span class="window-spacer"></span>
+    </div>
+    <div class="window-body sketch-body">
+      <div class="sketch-tools">
+        <button class="sketch-color selected" data-color="#f5f6f7" style="background-color: #f5f6f7;"></button>
+        <button class="sketch-color" data-color="#4a8fe7" style="background-color: #4a8fe7;"></button>
+        <button class="sketch-color" data-color="#e5564c" style="background-color: #e5564c;"></button>
+        <button class="sketch-color" data-color="#4caf6e" style="background-color: #4caf6e;"></button>
+        <button class="sketch-color" data-color="#e8b84a" style="background-color: #e8b84a;"></button>
+        <span class="sketch-divider"></span>
+        <input id="sketchsize" type="range" min="2" max="20" value="4" />
+        <span class="sketch-divider"></span>
+        <button id="sketchclear" class="sketch-tool" aria-label="Clear canvas">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 6h18" />
+            <path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2" />
+            <path d="M19 6l-1 14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1L5 6" />
+          </svg>
+        </button>
+      </div>
+      <canvas id="sketchcanvas"></canvas>
+    </div>
+  </div>
+
+  <div class="window" id="shorts" style="top: 70px; left: 600px; width: 340px; height: 600px; display: none;">
+    <div class="window-header" id="shortsheader">
+      <button class="window-close" data-close="shorts" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+      <span class="window-title">Shorts</span>
+      <span class="window-spacer"></span>
+    </div>
+    <div class="window-body shorts-body">
+      <div id="shortsstage">
+        <div id="shortsplayer"></div>
+        <div class="shorts-rail">
+          <button id="shortslike" class="shorts-action" aria-label="Like">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M12 21s-7-4.6-9.3-8.7C1 9.2 2.6 5.6 6 5.1c2-.3 3.9.7 6 3 2.1-2.3 4-3.3 6-3 3.4.5 5 4.1 3.3 7.2C19 16.4 12 21 12 21z" />
+            </svg>
+            <span id="shortslikecount">0</span>
+          </button>
+          <button id="shortscommentstoggle" class="shorts-action" aria-label="Comments">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12a8 8 0 0 1-8 8H4l2-3a8 8 0 1 1 15-5z" />
+            </svg>
+            <span id="shortscommentcount">0</span>
+          </button>
+          <button id="shortsadd" class="shorts-action" aria-label="Add a short">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 8v8M8 12h8" />
+            </svg>
+            <span>Add</span>
+          </button>
+        </div>
+        <div id="shortscomments" class="shorts-panel">
+          <div class="shorts-panel-head">
+            <span>Comments</span>
+            <button id="shortscommentsclose" class="shorts-panel-close" aria-label="Close comments">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round">
+                <path d="M6 6l12 12M18 6L6 18" />
+              </svg>
+            </button>
+          </div>
+          <ul id="shortscommentlist"></ul>
+          <div class="shorts-comment-form">
+            <input id="shortscommentinput" type="text" placeholder="Add a comment..." maxlength="200" />
+            <button id="shortscommentsend" aria-label="Send comment">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div id="shortsaddpanel" class="shorts-panel">
+          <div class="shorts-panel-head">
+            <span>Add a short</span>
+            <button id="shortsaddclose" class="shorts-panel-close" aria-label="Close add panel">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round">
+                <path d="M6 6l12 12M18 6L6 18" />
+              </svg>
+            </button>
+          </div>
+          <p class="shorts-add-hint">Paste a YouTube Shorts link or video ID</p>
+          <div class="shorts-comment-form">
+            <input id="shortsaddinput" type="text" placeholder="youtube.com/shorts/..." />
+            <button id="shortsaddsend" aria-label="Add short">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="shorts-controls">
+        <button id="shortsprev" class="shorts-nav" aria-label="Previous short">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6" />
+          </svg>
+        </button>
+        <span id="shortscounter" class="shorts-counter"></span>
+        <button id="shortsnext" class="shorts-nav" aria-label="Next short">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="window" id="settings" style="top: 100px; left: 320px; width: 380px; height: 480px; display: none;">
+    <div class="window-header" id="settingsheader">
+      <button class="window-close" data-close="settings" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+      <span class="window-title">Settings</span>
+      <span class="window-spacer"></span>
+    </div>
+    <div class="window-body settings-body">
+      <div class="settings-section">
+        <p class="settings-label">Background</p>
+        <div class="settings-swatches" id="bgswatches">
+          <button class="settings-swatch" data-bg="#161719" style="background-color: #161719;"></button>
+          <button class="settings-swatch" data-bg="#101418" style="background-color: #101418;"></button>
+          <button class="settings-swatch" data-bg="#1a1620" style="background-color: #1a1620;"></button>
+          <button class="settings-swatch" data-bg="#16201a" style="background-color: #16201a;"></button>
+          <button class="settings-swatch" data-bg="#201a16" style="background-color: #201a16;"></button>
+          <button class="settings-swatch" data-bg="#1c1014" style="background-color: #1c1014;"></button>
+          <input type="color" id="bgcustom" value="#161719" aria-label="Custom background color" />
+        </div>
+        <div class="settings-row">
+          <input type="text" id="bgimage" class="settings-input" placeholder="Image URL (https://...)" />
+          <button id="bgimageclear" class="settings-mini" aria-label="Clear background image">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="settings-section">
+        <p class="settings-label">Idle screen</p>
+        <div class="settings-row">
+          <span>Show after</span>
+          <select id="idledelay">
+            <option value="30000">30 seconds</option>
+            <option value="60000" selected>1 minute</option>
+            <option value="120000">2 minutes</option>
+            <option value="300000">5 minutes</option>
+            <option value="0">Never</option>
+          </select>
+        </div>
+        <div class="settings-row">
+          <span>Clock size</span>
+          <select id="idlesize">
+            <option value="64">Small</option>
+            <option value="96" selected>Medium</option>
+            <option value="140">Large</option>
+          </select>
+        </div>
+        <div class="settings-row">
+          <span>Show date</span>
+          <button id="idledate" class="settings-toggle on" role="switch" aria-checked="true"
+            aria-label="Show date on idle screen"><span></span></button>
+        </div>
+        <div class="settings-row">
+          <span>Show hint</span>
+          <button id="idlehint" class="settings-toggle on" role="switch" aria-checked="true"
+            aria-label="Show hint on idle screen"><span></span></button>
+        </div>
+        <div class="settings-row">
+          <span>Idle background</span>
+          <div class="settings-swatches" id="idleswatches">
+            <button class="settings-swatch" data-idlebg="#161719" style="background-color: #161719;"></button>
+            <button class="settings-swatch" data-idlebg="#000000" style="background-color: #000000;"></button>
+            <button class="settings-swatch" data-idlebg="#0c1220" style="background-color: #0c1220;"></button>
+          </div>
+        </div>
+      </div>
+      <div class="settings-section">
+        <p class="settings-label">Profile</p>
+        <div class="settings-row">
+          <span>Name</span>
+          <input type="text" id="settingsname" maxlength="24" autocomplete="off" spellcheck="false" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="window" id="weather" style="top: 130px; left: 420px; width: 300px; height: 360px; display: none;">
+    <div class="window-header" id="weatherheader">
+      <button class="window-close" data-close="weather" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+      <span class="window-title">Weather</span>
+      <span class="window-spacer"></span>
+    </div>
+    <div class="window-body weather-body">
+      <p class="weather-loading">Open to load weather.</p>
+    </div>
+  </div>
+
+  <div class="window" id="music" style="top: 120px; left: 380px; width: 360px; height: 440px; display: none;">
+    <div class="window-header" id="musicheader">
+      <button class="window-close" data-close="music" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+      <span class="window-title">Music</span>
+      <span class="window-spacer"></span>
+    </div>
+    <div class="window-body music-body">
+      <div class="music-art">
+        <svg id="musicdisc" viewBox="0 0 24 24" width="60" height="60" fill="none" stroke="currentColor"
+          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18V5l12-2v13" />
+          <circle cx="6" cy="18" r="3" />
+          <circle cx="18" cy="16" r="3" />
+        </svg>
+      </div>
+      <p id="musictitle" class="music-title">Nothing playing</p>
+      <p id="musicsub" class="music-sub">paste an mp3 link below</p>
+      <div class="music-progress">
+        <span id="musiccurrent">0:00</span>
+        <input id="musicseek" type="range" min="0" max="100" value="0" step="0.1" />
+        <span id="musicduration">0:00</span>
+      </div>
+      <div class="music-controls">
+        <button id="musicprev" class="music-ctrl" aria-label="Previous">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M6 6h2v12H6zM20 6l-9 6 9 6z" />
+          </svg>
+        </button>
+        <button id="musicplay" class="music-ctrl music-play" aria-label="Play or pause">
+          <svg id="musicplayicon" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </button>
+        <button id="musicnext" class="music-ctrl" aria-label="Next">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M16 6h2v12h-2zM4 6l9 6-9 6z" />
+          </svg>
+        </button>
+      </div>
+      <div class="music-add">
+        <input id="musicinput" type="text" autocomplete="off" spellcheck="false" placeholder="https://....mp3" />
+        <button id="musicadd" aria-label="Add track">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5v14M5 12h14" />
+          </svg>
+        </button>
+      </div>
+      <ul id="musiclist"></ul>
+    </div>
+  </div>
+
+  <div id="widgets">
+    <div class="widget">
+      <p id="widgettime">--:--</p>
+      <p id="widgetdate">loading</p>
+    </div>
+    <div class="widget widget-stats">
+      <div class="widget-row">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="8" r="4" />
+          <path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6" />
+        </svg>
+        <span id="widgetuser">anon</span>
+      </div>
+      <div class="widget-row">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" />
+          <path d="M15 3v4h4" />
+        </svg>
+        <span id="widgetnotes">0 notes</span>
+      </div>
+      <div class="widget-row">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M12 21s-7-4.6-9.3-8.7C1 9.2 2.6 5.6 6 5.1c2-.3 3.9.7 6 3 2.1-2.3 4-3.3 6-3 3.4.5 5 4.1 3.3 7.2C19 16.4 12 21 12 21z" />
+        </svg>
+        <span id="widgetlikes">0 liked</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="afk">
+    <div id="afktime"></div>
+    <p id="afkdate"></p>
+    <p class="afk-hint">move the mouse to come back</p>
+  </div>
+
+  <div id="spotlight">
+    <div class="spotlight-box">
+      <div class="spotlight-bar">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7" />
+          <path d="M21 21l-4.3-4.3" />
+        </svg>
+        <input id="spotlightinput" type="text" autocomplete="off" spellcheck="false"
+          placeholder="Search apps and actions" />
+      </div>
+      <ul id="spotlightresults"></ul>
+    </div>
+  </div>
+
+  <button id="searchfab" aria-label="Open search">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9"
+      stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="7" />
+      <path d="M21 21l-4.3-4.3" />
+    </svg>
+  </button>
+
+  <div id="dock">
+    <button class="dock-icon" data-window="welcome" aria-label="Welcome">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 11l9-7 9 7" />
+        <path d="M5 10v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9" />
+      </svg>
+      <span class="dock-dot"></span>
+    </button>
+    <button class="dock-icon" data-window="notes" aria-label="Notes">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" />
+        <path d="M15 3v4h4" />
+        <path d="M9 12h6M9 16h6" />
+      </svg>
+      <span class="dock-dot"></span>
+    </button>
+    <button class="dock-icon" data-window="calculator" aria-label="Calculator">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="5" y="3" width="14" height="18" rx="2" />
+        <path d="M8 7h8" />
+        <path d="M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01" />
+      </svg>
+      <span class="dock-dot"></span>
+    </button>
+    <button class="dock-icon" data-window="weather" aria-label="Weather">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M17.5 19a4.5 4.5 0 0 0 0-9 6 6 0 0 0-11.6 1.5A4 4 0 0 0 6.5 19h11z" />
+      </svg>
+      <span class="dock-dot"></span>
+    </button>
+    <button class="dock-icon" data-window="shorts" aria-label="Shorts">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="7" y="2" width="10" height="20" rx="3" />
+        <path d="M11 9.5l4 2.5-4 2.5v-5z" />
+      </svg>
+      <span class="dock-dot"></span>
+    </button>
+    <button class="dock-icon" data-window="sketch" aria-label="Sketch">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 19l7-7 3 3-7 7-3-3z" />
+        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+        <path d="M2 2l7.586 7.586" />
+      </svg>
+      <span class="dock-dot"></span>
+    </button>
+    <button class="dock-icon" data-window="terminal" aria-label="Terminal">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="16" rx="2" />
+        <path d="M7 9l3 3-3 3" />
+        <path d="M12 15h5" />
+      </svg>
+      <span class="dock-dot"></span>
+    </button>
+    <button class="dock-icon" data-window="about" aria-label="About">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 8h.01M12 11v5" />
+      </svg>
+      <span class="dock-dot"></span>
+    </button>
+    <button class="dock-icon" data-window="music" aria-label="Music">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 18V5l12-2v13" />
+        <circle cx="6" cy="18" r="3" />
+        <circle cx="18" cy="16" r="3" />
+      </svg>
+      <span class="dock-dot"></span>
+    </button>
+    <button class="dock-icon" data-window="settings" aria-label="Settings">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3" />
+        <path
+          d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.09a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.09a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+      </svg>
+      <span class="dock-dot"></span>
+    </button>
+  </div>
+
+  <script src="script.js?v=16"></script>
+</body>
+
+</html>
